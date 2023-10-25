@@ -23,13 +23,15 @@ func main() {
 	router.LoadHTMLGlob("templates/*")
 
 	router.GET("/index", func(c *gin.Context) {
-
-		ctx := context.Background()
-		refreshes := incAndGetRefreshed(ctx)
+		refreshes := incAndGetRefreshed(c.Request.Context())
 
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"refreshed": refreshes,
 		})
+	})
+
+	router.GET("/healthz", func(c *gin.Context) {
+		c.JSON(http.StatusOK, nil)
 	})
 
 	err = router.Run("127.0.0.1:8080")
