@@ -3,3 +3,6 @@ run:
 
 spin-redis:
     docker run -d -p 6379:6379 redis
+
+spin:
+    docker compose up --build

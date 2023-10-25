@@ -34,7 +34,7 @@ func main() {
 		c.JSON(http.StatusOK, nil)
 	})
 
-	err = router.Run("127.0.0.1:8080")
+	err = router.Run("0.0.0.0:8080")
 	if err != nil {
 		panic(err)
 	}
