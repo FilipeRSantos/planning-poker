@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    environment:
+      "REDIS_CONNECTION_STRING": "redis://localhost:6379/10"
+    ports:
+      - "8080:8080"
+  redis:
+    image: "redis:alpine"

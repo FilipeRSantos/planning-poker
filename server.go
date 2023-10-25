@@ -1,23 +1,48 @@
 package main
 
 import (
+	"context"
 	"github.com/gin-gonic/gin"
+	"github.com/redis/go-redis/v9"
 	"net/http"
+	"os"
 )
 
+var client *redis.Client
+
 func main() {
+	opt, err := redis.ParseURL(os.Getenv("REDIS_CONNECTION_STRING"))
+	if err != nil {
+		panic(err)
+	}
+
+	client = redis.NewClient(opt)
+
 	router := gin.Default()
 
 	router.LoadHTMLGlob("templates/*")
 
 	router.GET("/index", func(c *gin.Context) {
+
+		ctx := context.Background()
+		refreshes := incAndGetRefreshed(ctx)
+
 		c.HTML(http.StatusOK, "index.html", gin.H{
-			"onlineUsersCount": 1,
+			"refreshed": refreshes,
 		})
 	})
 
-	err := router.Run("127.0.0.1:8080")
+	err = router.Run("127.0.0.1:8080")
 	if err != nil {
-		return
+		panic(err)
 	}
+}
+
+func incAndGetRefreshed(ctx context.Context) int64 {
+	val, err := client.Incr(ctx, "refreshes").Result()
+	if err != nil {
+		panic(err)
+	}
+
+	return val
 }
