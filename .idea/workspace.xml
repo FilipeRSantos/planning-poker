@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e6658c7-fb90-461c-bc88-cf10b781fb52" name="Changes" comment="fix: fixed docker images">
-      <change afterPath="$PROJECT_DIR$/adapters/RedisClient.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/endpoints/api-endpoints.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/endpoints/portal-endpoints.go" afterDir="false" />
+    <list default="true" id="6e6658c7-fb90-461c-bc88-cf10b781fb52" name="Changes" comment="feat: added htmx and first integration">
+      <change afterPath="$PROJECT_DIR$/templates/room-created.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/RedisClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/adapters/RedisClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/endpoints/api-endpoints.go" beforeDir="false" afterPath="$PROJECT_DIR$/endpoints/api-endpoints.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +59,8 @@
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "E:/src/pessoal/poc-planning-poker/endpoints",
     "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -72,9 +72,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: fixed docker images" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: fixed docker images" />
+    <MESSAGE value="refactor: organizing project structure" />
+    <MESSAGE value="feat: added htmx and first integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added htmx and first integration" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
