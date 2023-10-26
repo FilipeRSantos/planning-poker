@@ -1,9 +1,11 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/template/html/v2"
 	"liposo/planing-poker/adapters"
 	"liposo/planing-poker/endpoints"
+	"log"
 )
 
 func main() {
@@ -12,15 +14,13 @@ func main() {
 		panic(err)
 	}
 
-	router := gin.Default()
+	engine := html.New("./templates", ".html")
+	app := fiber.New(fiber.Config{
+		Views: engine,
+	})
 
-	router.LoadHTMLGlob("templates/*")
+	endpoints.SetupPortalEndpoints(app)
+	endpoints.SetupApiEndpoints(app)
 
-	endpoints.SetupPortalEndpoints(router)
-	endpoints.SetupApiEndpoints(router)
-
-	err = router.Run(":8080")
-	if err != nil {
-		panic(err)
-	}
+	log.Fatal(app.Listen(":8080"))
 }

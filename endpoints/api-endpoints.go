@@ -1,29 +1,28 @@
 package endpoints
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 	"liposo/planing-poker/adapters"
-	"net/http"
 )
 
-func SetupApiEndpoints(router *gin.Engine) {
+func SetupApiEndpoints(router *fiber.App) {
 	v1 := router.Group("/api")
 
-	v1.GET("/healthz", handleHealthCheck)
+	v1.Get("/healthz", handleHealthCheck)
 
 	roomRoutes := v1.Group("/room")
-	roomRoutes.POST("/", handleNewRoom)
+	roomRoutes.Post("/", handleNewRoom)
 }
 
-func handleHealthCheck(c *gin.Context) {
-	c.JSON(http.StatusOK, nil)
+func handleHealthCheck(c *fiber.Ctx) error {
+	return c.JSON(nil)
 }
 
-func handleNewRoom(c *gin.Context) {
-	userName := c.PostForm("user")
-	newRoom := adapters.NewRoom(c.Request.Context(), userName)
+func handleNewRoom(c *fiber.Ctx) error {
+	userName := c.FormValue("user")
+	newRoom := adapters.NewRoom(c.Context(), userName)
 
-	c.HTML(http.StatusCreated, "room-created.html", gin.H{
+	return c.Render("room-created", fiber.Map{
 		"uid":  newRoom,
 		"user": userName,
 	})

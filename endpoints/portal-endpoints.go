@@ -1,21 +1,20 @@
 package endpoints
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 	"liposo/planing-poker/adapters"
-	"net/http"
 )
 
-func SetupPortalEndpoints(router *gin.Engine) {
+func SetupPortalEndpoints(router *fiber.App) {
 	v1 := router.Group("/")
 
-	v1.GET("/index", handleIndex)
+	v1.Get("/index", handleIndex)
 }
 
-func handleIndex(c *gin.Context) {
-	refreshes, _ := adapters.IncAndGetRefreshed(c.Request.Context())
+func handleIndex(c *fiber.Ctx) error {
+	refreshes, _ := adapters.IncAndGetRefreshed(c.Context())
 
-	c.HTML(http.StatusOK, "index.html", gin.H{
+	return c.Render("index", fiber.Map{
 		"refreshed": refreshes,
 	})
 }
