@@ -1,26 +1,26 @@
 package main
 
 import (
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/template/html/v2"
-	"liposo/planing-poker/adapters"
+	"github.com/gin-gonic/gin"
 	"liposo/planing-poker/endpoints"
-	"log"
+	"liposo/planing-poker/handlers"
 )
 
 func main() {
-	_, err := adapters.CreateClient()
+	liposoClient, err := handlers.CreateClient()
 	if err != nil {
 		panic(err)
 	}
 
-	engine := html.New("./templates", ".html")
-	app := fiber.New(fiber.Config{
-		Views: engine,
-	})
+	router := gin.Default()
 
-	endpoints.SetupPortalEndpoints(app)
-	endpoints.SetupApiEndpoints(app)
+	router.LoadHTMLGlob("templates/*")
 
-	log.Fatal(app.Listen(":8080"))
+	endpoints.SetupPortalEndpoints(router, liposoClient)
+	endpoints.SetupApiEndpoints(router, liposoClient)
+
+	err = router.Run(":8080")
+	if err != nil {
+		panic(err)
+	}
 }
