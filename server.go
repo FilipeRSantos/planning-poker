@@ -14,7 +14,7 @@ func main() {
 		panic(err)
 	}
 
-	engine := html.New("./templates", ".html")
+	engine := html.New("./views", ".html")
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	})

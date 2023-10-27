@@ -15,7 +15,7 @@ FROM golang:1.21.3-alpine AS build-release-stage
 WORKDIR /
 
 COPY --from=build-stage /planning-poker /planning-poker
-COPY ./templates ./templates
+COPY ./views ./views
 
 EXPOSE 8080
 ENV GIN_MODE=release

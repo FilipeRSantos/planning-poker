@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e6658c7-fb90-461c-bc88-cf10b781fb52" name="Changes" comment="refactor: migrated from gin to fiber">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="6e6658c7-fb90-461c-bc88-cf10b781fb52" name="Changes" comment="feat: adding htmx flow">
+      <change afterPath="$PROJECT_DIR$/views/htmx/room-by-id.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layouts/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/endpoints/portal-endpoints.go" beforeDir="false" afterPath="$PROJECT_DIR$/endpoints/portal-endpoints.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/Api.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/Api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/Handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/Handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/portal.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/Portal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/Portal.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/Portal.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/room-created.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,27 +50,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/src/pessoal/poc-planning-poker/endpoints&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "E:/src/pessoal/poc-planning-poker/views/partials",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\src\pessoal\poc-planning-poker\views\partials" />
       <recent name="E:\src\pessoal\poc-planning-poker\endpoints" />
     </key>
   </component>
@@ -88,7 +95,8 @@
     <MESSAGE value="refactor: organizing project structure" />
     <MESSAGE value="feat: added htmx and first integration" />
     <MESSAGE value="refactor: migrated from gin to fiber" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: migrated from gin to fiber" />
+    <MESSAGE value="feat: adding htmx flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: adding htmx flow" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

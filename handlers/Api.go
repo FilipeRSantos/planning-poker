@@ -30,8 +30,5 @@ func (h *ApiHandler) HandleNewRoom(c *fiber.Ctx) error {
 
 	c.Set("hx-Location", fmt.Sprintf("/rooms/%s", newRoom))
 
-	return c.Render("room-created", fiber.Map{
-		"uid":  newRoom,
-		"user": userName,
-	})
+	return c.Send(nil)
 }

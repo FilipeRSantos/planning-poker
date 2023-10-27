@@ -1,0 +1,22 @@
+{{template "partials/header" .}}
+
+<section>
+    <form>
+        <label>
+            <input type="text" placeholder="Your name" name="user">
+        </label>
+        <button hx-post="/api/room"
+                hx-trigger="click"
+                hx-target="#parent-div"
+                hx-swap="outerHTML"
+                type="submit"
+        >
+            New Room
+        </button>
+    </form>
+    <h1>Create new room</h1>
+</section>
+<h1>Refreshed: {{ .refreshed }}</h1>
+<div id="parent-div"></div>
+
+{{template "partials/footer" .}}

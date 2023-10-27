@@ -14,13 +14,13 @@ func (h *ApiHandler) HandleIndex(c *fiber.Ctx) error {
 
 	return c.Render("index", fiber.Map{
 		"refreshed": refreshes,
-	})
+	}, "layouts/main")
 }
 
 func (h *ApiHandler) HandleGetRoomByUid(c *fiber.Ctx) error {
 	uid := c.Params("uid")
 
-	return c.Render("room-created", fiber.Map{
+	return c.Render("htmx/room-by-id", fiber.Map{
 		"uid": uid,
-	})
+	}, "layouts/main")
 }
