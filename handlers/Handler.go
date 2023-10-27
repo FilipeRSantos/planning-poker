@@ -15,9 +15,9 @@ func CreateClient() (*ApiHandler, error) {
 		return nil, err
 	}
 
-	liposoFeedero := &ApiHandler{
+	handler := &ApiHandler{
 		redisClient: redis.NewClient(opt),
 	}
 
-	return liposoFeedero, nil
+	return handler, nil
 }

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	liposoClient, err := handlers.CreateClient()
+	apiHandler, err := handlers.CreateClient()
 	if err != nil {
 		panic(err)
 	}
@@ -19,8 +19,8 @@ func main() {
 		Views: engine,
 	})
 
-	endpoints.SetupPortalEndpoints(app, liposoClient)
-	endpoints.SetupApiEndpoints(app, liposoClient)
+	endpoints.SetupPortalEndpoints(app, apiHandler)
+	endpoints.SetupApiEndpoints(app, apiHandler)
 
 	log.Fatal(app.Listen(":8080"))
 }

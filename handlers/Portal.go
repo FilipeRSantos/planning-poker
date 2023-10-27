@@ -16,3 +16,11 @@ func (h *ApiHandler) HandleIndex(c *fiber.Ctx) error {
 		"refreshed": refreshes,
 	})
 }
+
+func (h *ApiHandler) HandleGetRoomByUid(c *fiber.Ctx) error {
+	uid := c.Params("uid")
+
+	return c.Render("room-created", fiber.Map{
+		"uid": uid,
+	})
+}

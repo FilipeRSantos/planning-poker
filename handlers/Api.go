@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"context"
+	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"liposo/planing-poker/types"
@@ -26,6 +27,8 @@ func (h *ApiHandler) HandleHealthCheck(c *fiber.Ctx) error {
 func (h *ApiHandler) HandleNewRoom(c *fiber.Ctx) error {
 	userName := c.FormValue("user")
 	newRoom := h.NewRoom(c.Context(), userName)
+
+	c.Set("hx-Location", fmt.Sprintf("/rooms/%s", newRoom))
 
 	return c.Render("room-created", fiber.Map{
 		"uid":  newRoom,

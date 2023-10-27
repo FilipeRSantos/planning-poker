@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e6658c7-fb90-461c-bc88-cf10b781fb52" name="Changes" comment="feat: added htmx and first integration">
+    <list default="true" id="6e6658c7-fb90-461c-bc88-cf10b781fb52" name="Changes" comment="refactor: migrated from gin to fiber">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/endpoints/api-endpoints.go" beforeDir="false" afterPath="$PROJECT_DIR$/endpoints/api-endpoints.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/endpoints/portal-endpoints.go" beforeDir="false" afterPath="$PROJECT_DIR$/endpoints/portal-endpoints.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/Api.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/Api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/Handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/Handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/portal.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/Portal.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +87,8 @@
     <MESSAGE value="fix: fixed docker images" />
     <MESSAGE value="refactor: organizing project structure" />
     <MESSAGE value="feat: added htmx and first integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added htmx and first integration" />
+    <MESSAGE value="refactor: migrated from gin to fiber" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: migrated from gin to fiber" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
