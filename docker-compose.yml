@@ -1,13 +1,12 @@
 services:
-  web:
-    build: .
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    restart: unless-stopped
+    ports:
+      - ${PORT}:${PORT}
     environment:
-      "REDIS_CONNECTION_STRING": "redis://host.docker.internal:6379/10"
-    ports:
-      - "8080:8080"
-    depends_on:
-      - redis
-  redis:
-    image: "redis:alpine"
-    ports:
-      - "6379:6379"
+      APP_ENV: ${APP_ENV}
+      PORT: ${PORT}

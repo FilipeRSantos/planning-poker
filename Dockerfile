@@ -1,23 +1,24 @@
-FROM golang:1.21.3 AS build-stage
-LABEL authors="lipe"
+FROM golang:1.23-alpine AS build
+RUN apk add --no-cache curl
 
 WORKDIR /app
+
 COPY go.mod go.sum ./
 RUN go mod download
 
-COPY . ./
-RUN CGO_ENABLED=0 GOOS=linux go build -o /planning-poker
+COPY . .
+RUN go install github.com/a-h/templ/cmd/templ@latest && \
+    templ generate && \
+    curl -sL https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64 -o tailwindcss && \
+    chmod +x tailwindcss && \
+    ./tailwindcss -i cmd/web/styles/input.css -o cmd/web/assets/css/output.css
 
-FROM build-stage AS run-test-stage
-RUN go test -v ./...
+RUN go build -o main cmd/api/main.go
 
-FROM golang:1.21.3-alpine AS build-release-stage
-WORKDIR /
+FROM alpine:3.20.1 AS prod
+WORKDIR /app
+COPY --from=build /app/main /app/main
+EXPOSE ${PORT}
+CMD ["./main"]
 
-COPY --from=build-stage /planning-poker /planning-poker
-COPY ./views ./views
 
-EXPOSE 8080
-ENV GIN_MODE=release
-
-ENTRYPOINT ["/planning-poker"]
