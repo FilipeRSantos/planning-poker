@@ -1,0 +1,50 @@
+package web
+
+templ StartSession() {
+	@Base() {
+		<section>
+			<h1>Create new room</h1>
+
+			<form>
+				<label>
+					<input class="bg-gray-200 text-black p-2 border border-gray-400 rounded-lg" name="user" type="text"/>
+				</label>
+				<button 
+						class="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 rounded"
+						hx-post="/api/room"
+						hx-trigger="click"
+						hx-target="#parent-div"
+						hx-swap="outerHTML"
+						type="submit"
+				>
+					New Room
+				</button>
+			</form>
+		</section>
+		<div id="parent-div"></div>
+	}
+}
+
+templ RoomById(msg string) {
+	@Base() {
+		<div class="bg-green-100 p-4 shadow-md rounded-lg mt-6">
+			<p>Welcome to the new room { msg }!</p>
+		</div>
+
+		<div hx-ext="ws" ws-connect="/ws">
+			<div id="conversation">
+			</div>
+
+			<form id="query-submit-form" ws-send className="relative">
+				<input class="bg-gray-200 text-black p-2 border border-gray-400 rounded-lg" name="userMessage" type="text"/>
+				<button type="submit" class="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 rounded">Submit</button>
+			</form>
+		</div>
+	}
+}
+
+templ Message(msg string) {
+	<div class="bg-green-100 p-4 shadow-md rounded-lg mt-6" id="conversation" hx-swap-oob="beforeend">
+		<p>{ msg }</p>
+	</div>
+}
